@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+        ul {
+            list-style: none;
+        }
+
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            vertical-align: top;
+            max-width: 100%;
+        }
+
+        body {
+            background: #fff;
+            font: 14px/1 Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .holder {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .change-img .wrapper {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("../img/img_1.jpg");
+        }
+    </style>
+</head>
+<body class="change-img">
+<div class="wrapper">
+
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    changeBackgroundImage('.wrapper', 0.8, 'img/img_');
+
+    function changeBackgroundImage(holder, speed, directory) {
+        var currentBackgroundImageNumber = 0;
+
+        setInterval(function () {
+            currentBackgroundImageNumber++;
+
+            if (currentBackgroundImageNumber > 4) {
+                currentBackgroundImageNumber = 1
+            }
+            jQuery(holder).css('background-image', 'url(' + directory + currentBackgroundImageNumber + '.jpg)');
+
+        }, speed * 2000);
+
+        /*
+
+         speed from 0 to 1 ( 0.1- fast, 1 - slow) - you have the ability to specify the rate of more than 1
+
+         directory - path to the directory with pictures  + beginning of the picture name (Example - "img/img_")
+
+         */
+    }
+</script>
+</body>
+</html>

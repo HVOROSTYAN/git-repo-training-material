@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sticky Element</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+        ul {
+            list-style: none;
+        }
+
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            vertical-align: top;
+            max-width: 100%;
+        }
+
+        body {
+            background: #fff;
+            font: 14px/1 Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .holder {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .sticky-header .header {
+            background: rgba(4, 20, 84, 1);
+            -webkit-transition: all .3s linear;
+            transition: all .3s linear;
+            text-align: center;
+            font-size: 32px;
+            padding: 50px 0;
+            color: #fff;
+        }
+
+        .sticky-header .header.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 35px 0;
+            background: rgba(4, 20, 84, .7);
+            font-size: 26px;
+        }
+
+        .sticky-header .content {
+            height: 150vh;
+            background: linear-gradient(0deg, #041454, #fbb03b);
+        }
+
+        .sticky-header .footer {
+            height: 15vh;
+            background: #fbb03b;
+        }
+    </style>
+</head>
+<body class="sticky-header">
+
+    <header class="header">STICKY HEADER</header>
+    <div class="content"></div>
+    <footer class="footer"></footer>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    stickyElementInit('.header');
+
+    function stickyElementInit(stickyEl) {
+
+        function updateValue() {
+            styckyElment = jQuery(stickyEl);
+            stickeElementPosition = styckyElment.offset().top;
+            stickyElementHeight = styckyElment.outerHeight(true);
+        }
+        jQuery(window).on('load resize orientationchange scroll', updateValue);
+
+        jQuery(window).scroll(function() {
+            var scrollPosition = jQuery(window).scrollTop();
+
+            if (scrollPosition >= stickyElementHeight) {
+                styckyElment.addClass('fixed');
+            }
+            else {
+                styckyElment.removeClass('fixed');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

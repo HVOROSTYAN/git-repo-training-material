@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+        ul {
+            list-style: none;
+        }
+
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            vertical-align: top;
+            max-width: 100%;
+        }
+
+        body {
+            background: #fff;
+            font: 14px/1 Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .holder {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .tab-page {
+            padding-top: 100px;
+        }
+
+        .tab-navigation-list {
+            width: 100%;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .tab-navigation-list li {
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .tab-navigation-list a {
+            color: #fff;
+            background: #000;
+            padding: 10px 25px;
+            opacity: .4;
+            display: block;
+            -webkit-transition: all .3s linear;
+            transition: all .3s linear;
+        }
+
+        .tab-navigation-list .active a, .tab-navigation-list a:hover {
+            opacity: 1;
+        }
+
+        .tab-content {
+            border: 1px solid #ccc;
+            padding: 25px;
+            font-size: 18px;
+        }
+
+        .tab-content .tab-item {
+            display: none;
+        }
+
+        .tab-content .tab-item.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="tab-page">
+<div class="wrapper">
+    <div class="holder">
+        <ul class="tab-navigation-list">
+            <li data-class="tab_1" class="active"><a href="#">ITEM-1</a></li>
+            <li data-class="tab_2"><a href="#">ITEM-2</a></li>
+            <li data-class="tab_3"><a href="#">ITEM-3</a></li>
+            <li data-class="tab_4"><a href="#">ITEM-4</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-item tab-item-tab_1 active">
+                <h1>Lorem ipsum dolor sit amet.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam debitis illo minus nisi officiis
+                    repellendus unde vero. Accusamus, alias amet asperiores aspernatur commodi doloribus dolorum ea
+                    exercitationem facere facilis illum itaque iure labore neque numquam odio officia officiis,
+                    perspiciatis placeat quaerat quam quas quidem quo quod reprehenderit repudiandae sequi similique
+                    soluta ut voluptatum. Ab accusantium aliquam aliquid beatae blanditiis consectetur consequuntur
+                    corporis debitis, deleniti dolor dolorem doloribus dolorum est explicabo facere fugiat harum hic
+                    illo itaque labore modi nemo nulla possimus quae quasi repudiandae saepe sapiente temporibus vero
+                    voluptatum. Fugit ipsam laboriosam magnam maxime molestiae neque ratione tenetur voluptas!
+                    Totam.</p>
+            </div>
+            <div class="tab-item tab-item-tab_2">
+                <h2>Lorem ipsum dolor sit amet, consectetur.</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A cum dolor doloribus eaque enim error est
+                    id illo inventore iste itaque laborum libero modi natus, nihil officiis porro quas quia quod quos
+                    repellat sapiente vitae voluptas! Autem dolores ducimus excepturi facilis iure nisi provident quas
+                    ullam? A ab adipisci assumenda autem consequuntur deleniti dolore, dolorum eius eveniet ex inventore
+                    laborum maiores maxime natus neque quos tempora vero vitae voluptas voluptatem. Dignissimos dolor
+                    eius enim, maxime molestiae nesciunt non quae quidem. Autem cupiditate dicta dolorem dolores enim
+                    error id in molestiae, quam ratione temporibus unde veniam.</p>
+            </div>
+            <div class="tab-item tab-item-tab_3">
+                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa doloremque eius laborum quaerat quia!
+                    Ad alias asperiores commodi cupiditate, debitis dolor, ex facilis fuga fugiat, fugit ipsum libero
+                    magnam maiores non officia pariatur possimus quisquam rerum soluta voluptatum! Consequuntur numquam
+                    praesentium quis. Cumque ea laborum minus modi quo velit voluptatem. Assumenda eaque exercitationem
+                    iusto, labore necessitatibus reprehenderit temporibus unde veniam vitae. Consequuntur distinctio
+                    eaque eligendi et iste, libero, molestias, nam nihil nostrum officiis optio quos?</p>
+            </div>
+            <div class="tab-item tab-item-tab_4">
+                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium alias aliquam at blanditiis,
+                    consectetur corporis cum debitis delectus dicta dolore eum eveniet excepturi facere id ipsam ipsum
+                    itaque laborum maxime minus mollitia nam neque obcaecati perspiciatis possimus quae quam quas
+                    recusandae reiciendis sequi sit ut voluptas, voluptatem. Adipisci aliquam aliquid amet aperiam
+                    aspernatur atque est, eveniet, fugiat illo labore laboriosam laborum nesciunt odio omnis perferendis
+                    quo sed tenetur vitae. Animi dicta tempore voluptate. Amet aut autem, debitis eaque et explicabo
+                    incidunt! Ad aliquid consectetur eos exercitationem, facilis illum iure laborum quae quam quasi quod
+                    quos sed? Accusantium aliquam architecto dignissimos eaque esse eum excepturi harum, impedit ipsum
+                    magni minima modi officiis pariatur perspiciatis placeat quas quibusdam quo reiciendis rem
+                    reprehenderit sed veritatis voluptatibus, voluptatum. Distinctio dolor doloribus earum iusto minus
+                    molestias provident quaerat saepe sit soluta. Est natus officiis quo. A amet est et ipsam magnam nam
+                    necessitatibus vel.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    customTabInit('.tab-navigation-list li a', '.tab-content .tab-item');
+
+    function customTabInit(tabNavigationLink, tabItem) {
+
+        jQuery(tabNavigationLink).on('click', function (e) {
+            e.preventDefault();
+
+            var item = jQuery(this).closest('li'),
+                    contentItem = jQuery(tabItem),
+                    itemPosition = item.data('class');
+
+            contentItem.filter('.tab-item-' + itemPosition)
+                    .add(item)
+                    .addClass('active')
+                    .siblings()
+                    .removeClass('active');
+
+            jQuery('.slider').slick('setPosition');
+            /* - if tab-content contains slider*/
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+        ul {
+            list-style: none;
+        }
+
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            vertical-align: top;
+            max-width: 100%;
+        }
+
+        body {
+            background: #fff;
+            font: 14px/1 Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .holder {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .accordion-page {
+            padding-top: 100px;
+        }
+
+        .accordion-page dl {
+            max-width: 400px;
+        }
+
+        .accordion-page dt {
+            padding: 15px;
+            background: #000;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .accordion-page dd {
+            display: none;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body class="accordion-page">
+<div class="wrapper">
+    <div class="holder">
+        <dl>
+            <dt>Item 1</dt>
+            <dd>
+                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit,
+                    sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam
+                    est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora incidunt, ut labore et dolore magnam aliquam quaerat </p>
+            </dd>
+            <dt>Item 2</dt>
+            <dd>
+                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit,
+                    sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam
+                    est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora incidunt, ut labore et dolore magnam aliquam quaerat </p>
+            </dd>
+            <dt>Item 3</dt>
+            <dd>
+                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit,
+                    sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam
+                    est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora incidunt, ut labore et dolore magnam aliquam quaerat </p>
+            </dd>
+            <dt>Item 4</dt>
+            <dd>
+                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit,
+                    sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam
+                    est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius
+                    modi tempora incidunt, ut labore et dolore magnam aliquam quaerat </p>
+            </dd>
+        </dl>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    customAccordion('dl dt', 'dl dd');
+
+    function customAccordion(openerElement, showHideElement) {
+
+        var openerEl = jQuery(openerElement),
+                showHideEl = jQuery(showHideElement);
+
+        openerEl.on('click', function () {
+
+            var $this = jQuery(this);
+
+            if ($this.hasClass('open')) {
+                $this.removeClass('open');
+                $this.next().slideUp("slow");
+            } else {
+
+                showHideEl.slideUp("slow");
+                openerEl.removeClass('open');
+
+                $this.addClass('open');
+                $this.next().slideDown("slow");
+
+                return false;
+            }
+
+        });
+    }
+</script>
+</body>
+</html>

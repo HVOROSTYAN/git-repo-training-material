@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+        ul {
+            list-style: none;
+        }
+
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            vertical-align: top;
+            max-width: 100%;
+        }
+
+        body {
+            background: #fff;
+            font: 14px/1 Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .holder {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+    </style>
+</head>
+<body class="rotate-gradient">
+    <div class="wrapper">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        rotateGradient('.wrapper', 1, '#041454', '#fbb03b');
+
+        function rotateGradient(holder, speed, firstColor, secondColor) {
+            var degress = 0;
+
+            setInterval(function () {
+                degress ++;
+                jQuery(holder).css('background', 'linear-gradient(' + degress + 'deg,' +  firstColor + ',' + secondColor + ')');
+            }, speed * 10000 /360);
+
+            /*
+             speed from 0 to 1 ( 0.1- fast, 1 - slow) - you have the ability to specify the rate of more than 1
+             */
+        }
+    </script>
+</body>
+</html>

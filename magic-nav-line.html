@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic navigation element</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+        ul {
+            list-style: none;
+        }
+
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            vertical-align: top;
+            max-width: 100%;
+        }
+
+        body {
+            background: #fff;
+            font: 14px/1 Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .holder {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .site-header {
+            background: #009688;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .site-nav ul {
+            text-align: center;
+            position: relative;
+        }
+
+        .site-nav ul li {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .site-nav ul a {
+            font-size: 20px;
+            color: #fff;
+            line-height: 24px;
+            display: block;
+            padding: 25px;
+            text-decoration: none;
+            text-transform: uppercase;
+            -webkit-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+        }
+
+        .site-nav ul a:hover {
+            background-color: #00776c;
+        }
+
+        .site-nav .moving-element {
+            position: absolute;
+            bottom: 0;
+            height: 3px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body class="moving-line">
+<div class="wrapper">
+    <header class="site-header">
+        <nav class="site-nav">
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Details</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    if(jQuery('.moving-line').length !== 0){
+        movingNavigationLine('.site-nav > ul');
+    }
+
+    function movingNavigationLine (navItemHolder){
+        var itemHolder = jQuery(navItemHolder),
+                navigationItem = itemHolder.find(' > li'),
+                pseudoElement = jQuery('<div class="moving-element">').appendTo(itemHolder),
+                activeItem,
+                pseudoElementWidth,
+                pseudoElementPosition;
+
+        function updateValues() {
+            activeItem = navigationItem.filter('.active');
+            pseudoElementWidth = activeItem.outerWidth();
+            pseudoElementPosition = activeItem.position().left;
+        }
+        updateValues();
+
+        function lineMovingSettings() {
+            pseudoElement.animate({
+                'left':pseudoElementPosition,
+                'width':pseudoElementWidth
+            }, 300);
+        }
+        lineMovingSettings();
+
+        navigationItem.find('> a').on('click', function() {
+            var $this = jQuery(this);
+
+            navigationItem.removeClass('active');
+            $this.closest('li').addClass('active');
+            updateValues();
+            lineMovingSettings();
+
+            /* -- active class at link for demonstration -- */
+        });
+    }
+</script>
+</body>
+</html>
